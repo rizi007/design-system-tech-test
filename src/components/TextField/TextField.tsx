@@ -9,8 +9,6 @@ import type { TextFieldProps } from "./types";
  */
 export const TextField: FC<TextFieldProps> = (props) => {
   const { placeholder, value: valueProp, fullWidth = true, onChange, ...rest } = props;
-  // Support both controlled and uncontrolled usage. If `value` is provided,
-  // treat the component as controlled. Otherwise manage local state.
   const [internalValue, setInternalValue] = useState<string | undefined>(valueProp ?? "");
 
   useEffect(() => {
@@ -57,10 +55,6 @@ export const TextField: FC<TextFieldProps> = (props) => {
       computedAriaLabel = `${computedAriaLabel} - Error`;
     }
   }
-
-  // Use `slotProps.input` (the preferred API) to place props on the native
-  // input element. Merge with any consumer-provided `slotProps` and preserve
-  // an explicit input-level aria-label if present.
   const consumerSlotProps = consumerSlotPropsRaw as Record<string, any> | undefined;
   const mergedSlotProps = {
     ...(consumerSlotProps || {}),

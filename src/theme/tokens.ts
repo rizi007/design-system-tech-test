@@ -1,8 +1,6 @@
 // Shared design tokens used across themes (light and dark)
-export const baseFontFamily = 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial';
+export const baseFontFamily = 'Inter';
 
-// Export tokens and a separate typography object for easier imports in theme.
-// Create small shared building blocks to avoid duplicating identical values
 const _bodyMediumBase = {
   fontFamily: baseFontFamily,
   fontStyle: 'normal',

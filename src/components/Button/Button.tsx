@@ -23,7 +23,7 @@ import type { ButtonProps } from "./types";
  */
 export const Button = ({ label, color = "primary", variant = "contained", ...rest }: ButtonProps) => (
   // Force size to 'medium' and rely on theme overrides for look & feel.
-  <MuiButton size="medium" color={color} variant={variant} {...rest}>
+  <MuiButton size="small" color={color} variant={variant} {...rest}>
     {label}
   </MuiButton>
 );

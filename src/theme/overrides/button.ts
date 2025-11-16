@@ -36,10 +36,10 @@ export function buttonOverrides(theme?: Theme) {
     ...base,
     styleOverrides: {
       root: {
-        paddingTop: theme.spacing(1.5),
-        paddingBottom: theme.spacing(1.5),
-        paddingLeft: theme.spacing(1),
-        paddingRight: theme.spacing(1),
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
+        paddingLeft: theme.spacing(1.5),
+        paddingRight: theme.spacing(1.5),
         textTransform: "none",
         ...theme.tokens.typography.body.medium500,
       } as StyleObject,
@@ -53,7 +53,9 @@ export function buttonOverrides(theme?: Theme) {
           color: theme.palette.primary.contrastText ,
           "&:hover": { backgroundColor: theme.palette.primary.hover },
           "&:disabled": { color: theme.palette.text.disabled,backgroundColor: theme.palette.neutral?.input?.disabled },
-          "&:focus-visible": { outline: `3px solid ${focusColor}`, outlineOffset: "2px" },
+          "&:focus-visible": { boxShadow: `0 0 0 1px ${theme.palette.common.white}, 0 0 0 3px ${
+            theme.palette.focus?.main
+          }`},
         },
       },
       // contained secondary
@@ -62,9 +64,11 @@ export function buttonOverrides(theme?: Theme) {
         style: {
           backgroundColor: theme.palette.secondary.main,
           color: theme.palette.secondary.contrastText ,
-          "&:hover": { backgroundColor: theme.palette.secondary.hover },
+          "&:hover": { backgroundColor: theme.palette.secondary.dark },
           "&:disabled": {color: theme.palette.text.disabled, backgroundColor: theme.palette.neutral?.input?.disabled },
-          "&:focus-visible": { outline: `3px solid ${focusColor}`, outlineOffset: "2px" },
+          "&:focus-visible": { boxShadow: `0 0 0 1px ${theme.palette.common.white}, 0 0 0 3px ${
+            theme.palette.focus?.main
+          }`},
         },
       },
       // contained error
@@ -75,7 +79,9 @@ export function buttonOverrides(theme?: Theme) {
           color: theme.palette.error.contrastText ,
           "&:hover": { backgroundColor: theme.palette.error.hover },
           "&:disabled": { color: theme.palette.text.disabled, backgroundColor: theme.palette.neutral?.input?.disabled },
-          "&:focus-visible": { outline: `3px solid ${focusColor}`, outlineOffset: "2px" },
+          "&:focus-visible": { boxShadow: `0 0 0 1px ${theme.palette.common.white}, 0 0 0 3px ${
+            theme.palette.focus?.main
+          }`},
         },
       },
       // outlined primary
@@ -86,7 +92,9 @@ export function buttonOverrides(theme?: Theme) {
           backgroundColor: theme.palette.neutral?.input?.default,
           color: theme.palette.primary.main,
           "&:hover": { backgroundColor: theme.palette.neutral?.input?.hover, borderColor: theme.palette.neutral?.input?.border?.hover },
-          "&:focus-visible": { outline: `3px solid ${focusColor}`, outlineOffset: "2px" },
+          "&:focus-visible": { boxShadow: `0 0 0 1px ${theme.palette.common.white}, 0 0 0 3px ${
+            theme.palette.focus?.main
+          }`},
           "&:disabled": { color: theme.palette.text.disabled,borderColor: theme.palette.neutral?.input?.border?.disabled,  backgroundColor: theme.palette.neutral?.input?.disabled },
         },
       },
@@ -97,6 +105,9 @@ export function buttonOverrides(theme?: Theme) {
           borderColor: theme.palette.neutral?.input?.border?.default,
           backgroundColor: theme.palette.neutral?.input?.default,
           color: theme.palette.text.primary,
+          "&:focus-visible": { boxShadow: `0 0 0 1px ${theme.palette.common.white}, 0 0 0 3px ${
+            theme.palette.focus?.main
+          }`},
           "&:hover": { backgroundColor: theme.palette.neutral?.input?.hover, borderColor: theme.palette.neutral?.input?.border?.hover },
           "&:disabled": { color: theme.palette.text.disabled,borderColor: theme.palette.neutral?.input?.border?.disabled,  backgroundColor: theme.palette.neutral?.input?.disabled },
         },
@@ -109,7 +120,9 @@ export function buttonOverrides(theme?: Theme) {
           borderColor: theme.palette.neutral?.input?.border?.default,
           backgroundColor: theme.palette.neutral?.input?.default,
           "&:hover": { backgroundColor: theme.palette.neutral?.input?.hover, borderColor: theme.palette.neutral?.input?.border?.hover },
-          "&:focus-visible": { outline: `3px solid ${focusColor}`, outlineOffset: "2px" },
+          "&:focus-visible": { boxShadow: `0 0 0 1px ${theme.palette.common.white}, 0 0 0 3px ${
+            theme.palette.focus?.main
+          }`},
           "&:disabled": { color: theme.palette.text.disabled,borderColor: theme.palette.neutral?.input?.border?.disabled,  backgroundColor: theme.palette.neutral?.input?.disabled },
         },
       },

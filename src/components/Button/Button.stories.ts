@@ -16,7 +16,7 @@ const meta = {
   args: { onClick: fn() },
   argTypes: {
     color: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: ["primary", "secondary", "error"],
     },
     size: { table: { disable: true }, control: false },
@@ -30,26 +30,26 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     color: "primary",
-    label: "Button",
+    label: "Label",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: "Button",
+    label: "Label",
   },
 };
 
 export const Outlined: Story = {
   args: {
     variant: "outlined",
-    label: "Button",
+    label: "Label",
   },
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    label: "Button",
+    label: "Label",
   },
 };

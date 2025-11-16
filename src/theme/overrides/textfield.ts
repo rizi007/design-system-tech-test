@@ -1,5 +1,4 @@
 import type { Theme, Components } from "@mui/material/styles";
-import { background } from "storybook/internal/theming";
 
 // Small style object type to avoid bringing in @mui/system types
 interface StyleObject {
@@ -40,7 +39,8 @@ export function textFieldOverrides(theme?: Theme): Components<Theme>["MuiOutline
         // covering input text.
         "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
           borderColor: theme.palette.neutral?.input?.border?.default,
-          boxShadow: `0 0 0 3px ${theme.palette.background.default}, 0 0 0 6px ${
+          borderWidth: 1,
+          boxShadow: `0 0 0 1px ${theme.palette.common.white}, 0 0 0 3px ${
             theme.palette.focus?.main
           }`,
           "&.Mui-error": {
@@ -64,21 +64,36 @@ export function textFieldOverrides(theme?: Theme): Components<Theme>["MuiOutline
             color: theme.palette.text.tertiary,
           },
         },
-        "&.Mui-error.Mui-focused .MuiOutlinedInput-notchedOutline": {
-         
+        // When disabled, remove the visible outline border so the field
+        // appears borderless and uses the disabled background color.
+        // This targets the notched outline specifically to avoid affecting
+        // other input variants.
+        "&.Mui-disabled": {
+          backgroundColor: theme.palette.neutral?.input?.disabled,
+          "& input": {
+            color: theme.palette.text.secondary,
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            border: 'none',
+          },
+          "& input::placeholder": {
+            color: theme.palette.text.disabled,
+          },
         },
+        
       } as StyleObject,
       notchedOutline: {
         borderColor: theme.palette.neutral?.input?.border?.default,
         transition: "none",
       } as StyleObject,
       input: {
-        padding: `${theme.spacing(1)} `,
+        /* State=Disabled, Content=Filled */
+
+        padding: `${theme.spacing(1)} ${theme.spacing(1.5)}`,
         // use the 400-weight body token for input text
         ...theme.tokens.typography.body.medium400,
         "&::placeholder": {
           color: theme.palette.text?.tertiary,
-          opacity: 1,
         },
         // Add a hover state on the input element itself. We use
         // `theme.palette.action.hover` (a translucent overlay color) so
@@ -86,6 +101,7 @@ export function textFieldOverrides(theme?: Theme): Components<Theme>["MuiOutline
         "&:hover": {
           backgroundColor: theme.palette.neutral?.input?.hover,
           color: theme.palette.text.primary,
+          borderRadius: theme.shape.borderRadius,
         },
       } as StyleObject,
     },
