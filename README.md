@@ -15,7 +15,8 @@ Storybook for this design system is deployed here [text](https://rizi007.github.
 2) Only button supported medium size and their isn't other sizes
 3) Disable state takes priority over critical state 
 4) No pressed state hence didnt cater for pressed state for example on a button
-5) Removed any animations from Mui like ripple 
+5) Removed any animations from Mui like ripple
+6) Deliberately kept the API minimum for button and textfield , minimalistic approach
 
 ## Prerequisites
 
