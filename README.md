@@ -2,6 +2,21 @@
 
 A small design-system package built with React, TypeScript and MUI. This repo contains theme-driven components (Button, TextField) and a Storybook for exploring states and accessibility.
 
+## Aim
+
+Is to develop the design system based on this figma link [text](https://www.figma.com/design/wtMCijFeCt780z0fbtvBEP/Design-System-Tech-Test---Figma) 
+More over , I tried to make sure name of tokens closely aligns the Design System in Figma.
+
+Storybook for this design system is deployed here [text](https://rizi007.github.io/design-system-tech-test/)
+
+## Assumptions
+
+1) There is no specific hover when you have crticial state in textfield so I've used the default hover state for when you hover on a textfield that is at critical state
+2) Only button supported medium size and their isn't other sizes
+3) Disable state takes priority over critical state 
+4) No pressed state hence didnt cater for pressed state for example on a button
+5) Removed any animations from Mui like ripple 
+
 ## Prerequisites
 
   - Node 20 or newer
@@ -120,4 +135,5 @@ A small design-system package built with React, TypeScript and MUI. This repo co
 
   - Keep React and MUI versions aligned between the design system and consumer app to avoid duplicate React instances or peer-dependency conflicts.
   - Add other MUI packages in the consumer (for example `@mui/icons-material`) as needed by your app.
+  - AI tools were used to help generate boilerplate , readme and help with configurations.
 
